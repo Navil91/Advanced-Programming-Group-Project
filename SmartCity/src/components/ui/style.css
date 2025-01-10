@@ -1,0 +1,44 @@
+.darlington,
+.middlesbrough,
+.newcastle,
+.durham,
+.sunderland {
+  transition: 0.2s;
+}
+.darlington:hover,
+.middlesbrough:hover,
+.newcastle:hover,
+.durham:hover,
+.sunderland:hover {
+  cursor: pointer;
+}
+.darlington:hover {
+  fill: #db2777;
+}
+.middlesbrough:hover {
+  fill: #9333ea;
+}
+.newcastle:hover {
+  fill: #2563eb;
+}
+.durham:hover {
+  fill: #22d3ee;
+}
+.sunderland:hover {
+  fill: #facc15;
+}
+
+.btn-outline {
+  border: 1.5px solid #111111;
+  padding: 4px 16px;
+  color: #111111;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.btn-outline:hover {
+  background-color: #111111;
+  color: #fafafa;
+}
+.nav-link:hover {
+  color: #db2777;
+}
