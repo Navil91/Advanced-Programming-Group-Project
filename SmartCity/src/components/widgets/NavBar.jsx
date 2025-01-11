@@ -3,7 +3,7 @@ import { Avatar } from "../ui/avatar";
 import { Moon, LogOut } from "lucide-react";
 import "../ui/style.css";
 // eslint-disable-next-line react/prop-types
-export default function NavBar({ onHandleSettings, settings }) {
+export default function NavBar({ activeNav, onHandleActiveNav,currentUser }) {
   return (
     <HStack
       w="dvw"
@@ -19,17 +19,25 @@ export default function NavBar({ onHandleSettings, settings }) {
       {/* middle content  */}
       <Flex alignItem="center" justifyContent="center" gap="20px">
         <Link
-          onClick={() => onHandleSettings(false)}
-          color={settings ? "#111111" : "#DB2777"}
+          onClick={() => onHandleActiveNav("home")}
+          color={activeNav=="home" ?  "#DB2777": "#111111"}
           variant="plain"
           className="nav-link"
         >
           Home
         </Link>
-        <Link
-          onClick={() => onHandleSettings(true)}
+        {currentUser=="provider" ? <Link
+          onClick={() => onHandleActiveNav("users")}
+          color={activeNav=="users" ?  "#DB2777": "#111111"}
           variant="plain"
-          color={!settings ? "#111111" : "#DB2777"}
+          className="nav-link"
+        >
+          Users
+        </Link>:""}
+        <Link
+          onClick={() => onHandleActiveNav("settings")}
+          variant="plain"
+          color={activeNav=="settings" ?"#DB2777"  : "#111111"}
           className="nav-link"
         >
           Settings

@@ -3,14 +3,16 @@ import NavBar from "../widgets/NavBar";
 import HomeGrid from "./HomeGrid";
 import SettingsForm from "./SettingsForm";
 import { Flex, Group, Text } from "@chakra-ui/react";
+import Users from "./Users";
 function HomeDashboard() {
-  const [settings, setSetttings] = useState(false);
+  const [activeNav, setActiveNav] = useState("home");
+  const [currentUser,setCurrentUser] = useState("provider")
   return (
     <>
-      <NavBar settings={settings} onHandleSettings={setSetttings} />
-      {settings ? (
+      <NavBar currentUser={currentUser} activeNav={activeNav} onHandleActiveNav={setActiveNav} />
+      {activeNav=="settings" ? (
         <SettingsForm />
-      ) : (
+      ) : activeNav=="users" ? <Users/>:(
         <Flex flexDirection="column" padding="16px 52px">
           <Group
             flexDirection="column"

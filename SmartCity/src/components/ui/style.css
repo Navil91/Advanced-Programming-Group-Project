@@ -42,3 +42,15 @@
 .nav-link:hover {
   color: #db2777;
 }
+.btn-add-user{
+  background-color: #db2777;
+  color: #fafafa;
+}
+.btn-save{
+  background-color: #111111;
+  color: #fafafa;
+}
+.btn-dlt{
+  background-color: #dc2626;
+  color: #fafafa;
+}
