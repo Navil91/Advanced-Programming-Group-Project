@@ -3,7 +3,7 @@ import { Avatar } from "../ui/avatar";
 import { Moon, LogOut } from "lucide-react";
 import "../ui/style.css";
 // eslint-disable-next-line react/prop-types
-export default function NavBar({ activeNav, onHandleActiveNav,currentUser }) {
+export default function NavBar({ activeNav, onHandleActiveNav, currentUser }) {
   return (
     <HStack
       w="dvw"
@@ -14,30 +14,34 @@ export default function NavBar({ activeNav, onHandleActiveNav,currentUser }) {
     >
       {/* left content  */}
       <Flex alignItem="center" justifyContent="center">
-        Logo
+        <img src="/Logo.svg" /> Smart Electricity
       </Flex>
       {/* middle content  */}
       <Flex alignItem="center" justifyContent="center" gap="20px">
         <Link
           onClick={() => onHandleActiveNav("home")}
-          color={activeNav=="home" ?  "#DB2777": "#111111"}
+          color={activeNav == "home" ? "#DB2777" : "#111111"}
           variant="plain"
           className="nav-link"
         >
           Home
         </Link>
-        {currentUser=="provider" ? <Link
-          onClick={() => onHandleActiveNav("users")}
-          color={activeNav=="users" ?  "#DB2777": "#111111"}
-          variant="plain"
-          className="nav-link"
-        >
-          Users
-        </Link>:""}
+        {currentUser == "provider" ? (
+          <Link
+            onClick={() => onHandleActiveNav("users")}
+            color={activeNav == "users" ? "#DB2777" : "#111111"}
+            variant="plain"
+            className="nav-link"
+          >
+            Users
+          </Link>
+        ) : (
+          ""
+        )}
         <Link
           onClick={() => onHandleActiveNav("settings")}
           variant="plain"
-          color={activeNav=="settings" ?"#DB2777"  : "#111111"}
+          color={activeNav == "settings" ? "#DB2777" : "#111111"}
           className="nav-link"
         >
           Settings
