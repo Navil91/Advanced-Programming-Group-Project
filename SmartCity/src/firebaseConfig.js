@@ -1,5 +1,14 @@
 import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+/**
+ * firebaseConfig Integration File
+ * 
+ * This is used to connect our Firebase project to our React application based on documentation from Firebase.
+ * 
+ * @category Integration
+ * @author Pawel Lasota, Navil Hassan
+*/
 
 const firebaseConfig = {
     apiKey: "AIzaSyB1RUMJsp_YzkfUQJzvy-uiipqjEJ4310I",
@@ -10,8 +19,8 @@ const firebaseConfig = {
     appId: "1:241742580389:web:63ab71a91831182ddb1b4c",
     measurementId: "G-0T99Q1FLF4"
   };
-  // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Export the auth object
-export const auth = getAuth(app);
+  const app = initializeApp(firebaseConfig);
+  const firestore = getFirestore(app);
+  
+  export const auth = getAuth(app);
+  export  {firestore}

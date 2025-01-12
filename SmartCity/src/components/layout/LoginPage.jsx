@@ -1,115 +1,75 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
-import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebaseConfig'; 
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Login Page
+ * 
+ * This page allows the user to get logged in and gain access to the system. 
+ * 
+ * @category Page
+ * @author Navil Hassan
+*/
+
 const LoginPage = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [userId, setUserId] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loginMessage, setLoginMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
-
+  const handleLogin = async (event) => {
+    event.preventDefault();
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, userId, password);
-      // Login successful
-      console.log('Logged in user:', userCredential.user);
-      navigate('/dashboard'); // Navigate to dashboard after successful login
+      await signInWithEmailAndPassword(auth, email, password);
+      setLoginMessage('Login successful!');
+      setTimeout(() => setLoginMessage(''), 3000); // Clear message after 3 seconds
+      navigate('/HomeDashboard'); // Redirect to the home
+      setTimeout(() => setLoginMessage('successful'), 3000);
+      setTimeout(() => setLoginMessage(''), 3000);
     } catch (error) {
-      setError(
-        error.code === 'auth/invalid-credential'
-          ? 'Invalid email or password'
-          : 'Failed to login. Please try again.'
-      );
-      console.error('Login error:', error);
-    } finally {
-      setLoading(false);
+      setLoginMessage('Failed to log in. Please check your credentials.');
+      setTimeout(() => setLoginMessage(''), 3000);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
-        {/* Logo */}
-        <div className="text-center mb-6">
-          <h2 className="text-xl font-semibold text-gray-800">LOGO</h2>
+    <div className="relative min-h-screen flex justify-center items-center bg-primary">
+      {loginMessage && (
+        <div className="absolute top-0 right-0 m-4 bg-green-100 text-green-700 p-2 rounded">
+          {loginMessage}
         </div>
-
-        {/* Welcome Text */}
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-semibold text-gray-800 mb-2">Welcome</h1>
-          <p className="text-gray-600">SignIn into your Account</p>
-        </div>
-
-        {/* Error Message */}
-        {error && (
-          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-            {error}
-          </div>
-        )}
-
-        {/* Login Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* User Id Input */}
+      )}
+      <div className="m-4 p-8 bg-white shadow-middle rounded-xlg max-w-sm w-full">
+        <h1 className="text-2xl font-bold text-center text-steelBlue mb-6">Login</h1>
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label htmlFor="userId" className="block text-sm font-medium text-gray-700 mb-2">
-              Email
-            </label>
+            <label htmlFor="email" className="text-steelBlue block mb-2">Email Address</label>
             <input
-              id="userId"
               type="email"
-              value={userId}
-              onChange={(e) => setUserId(e.target.value)}
-              placeholder="Enter your email"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-colour1"
               required
             />
           </div>
-
-          {/* Password Input */}
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                id="password"
-                type={showPassword ? 'text' : 'password'}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 pr-10"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
-              >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-              </button>
-            </div>
-            <div className="flex justify-end mt-1">
-              <a href="#" className="text-sm text-rose-500 hover:text-rose-600">
-                Forgot Password?
-              </a>
-            </div>
+            <label htmlFor="password" className="text-steelBlue block mb-2">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-colour1"
+              required
+            />
           </div>
-
-          {/* Sign In Button */}
           <button
             type="submit"
-            disabled={loading}
-            className="w-full bg-rose-500 text-white py-2 px-4 rounded-md hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-colour1 hover:bg-bookHover text-white py-2 rounded-lg font-medium"
           >
-            {loading ? 'Signing In...' : 'Sign In'}
+            Sign In
           </button>
         </form>
       </div>
