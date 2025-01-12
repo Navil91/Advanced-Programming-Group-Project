@@ -43,7 +43,7 @@ export default function SettingsForm() {
           </Stack>
 
           <Fieldset.Content>
-            <Field label="Old Passport">
+            <Field label="Old Password">
               <PasswordInput />
             </Field>
 

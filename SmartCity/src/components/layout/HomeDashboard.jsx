@@ -6,6 +6,7 @@ import { Flex, Group, Text } from "@chakra-ui/react";
 import Users from "./Users";
 function HomeDashboard() {
   const [activeNav, setActiveNav] = useState("home");
+  // eslint-disable-next-line no-unused-vars
   const [currentUser,setCurrentUser] = useState("provider")
   return (
     <>
