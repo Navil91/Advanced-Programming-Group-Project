@@ -5,9 +5,9 @@ export default function UserTable() {
       <Table.Root size="sm" stickyHeader>
         <Table.Header>
           <Table.Row bg="bg.subtle">
-            <Table.ColumnHeader>Product</Table.ColumnHeader>
-            <Table.ColumnHeader>Category</Table.ColumnHeader>
-            <Table.ColumnHeader textAlign="end">Price</Table.ColumnHeader>
+            <Table.ColumnHeader>User Id</Table.ColumnHeader>
+            <Table.ColumnHeader>Provider</Table.ColumnHeader>
+            <Table.ColumnHeader textAlign="end">User Type</Table.ColumnHeader>
           </Table.Row>
         </Table.Header>
 
@@ -25,9 +25,9 @@ export default function UserTable() {
   );
 }
 const items = [
-  { id: 1, name: "Laptop", category: "Electronics", price: 999.99 },
-  { id: 2, name: "Coffee Maker", category: "Home Appliances", price: 49.99 },
-  { id: 3, name: "Desk Chair", category: "Furniture", price: 150.0 },
-  { id: 4, name: "Smartphone", category: "Electronics", price: 799.99 },
-  { id: 5, name: "Headphones", category: "Accessories", price: 199.99 },
+  { id: 1, name: "User 1", category: "Provider A", price: "Manual" },
+  { id: 2, name: "User 2", category: "Provider A", price: "Smart Meter" },
+  { id: 3, name: "User 3", category: "Provider B", price: "Manual" },
+  { id: 4, name: "User 4", category: "Provider C", price: "Manual" },
+  { id: 5, name: "User 5", category: "Provider B", price: "Smart Meter" },
 ];

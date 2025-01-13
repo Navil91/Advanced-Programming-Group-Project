@@ -14,7 +14,13 @@ export default defineConfig({
         "./Style": "./src/components/ui/style.css",
         "./Avatar": "./src/components/ui/avatar.jsx",
       },
-      shared: ["react", "@chakra-ui/react", "lucide-react"],
+      shared: [
+        "react",
+        "@chakra-ui/react",
+        "lucide-react",
+        "firebase/auth",
+        "react-router-dom",
+      ],
     }),
   ],
   build: {

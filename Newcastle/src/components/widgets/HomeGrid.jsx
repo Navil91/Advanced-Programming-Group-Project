@@ -24,7 +24,7 @@ export default function HomeGrid() {
       <GridItem bgColor="#fafafa" padding="16px" borderRadius="8px">
         <Flex flexDirection="column" gap="2rem">
           <Text textStyle="md" fontWeight="medium">
-            Monthly Avg of Provider A
+            Monthly Avg of Provider B
           </Text>
           <AreaCharts />
         </Flex>
@@ -33,7 +33,7 @@ export default function HomeGrid() {
       <GridItem bgColor="#fafafa" padding="16px" borderRadius="8px">
         <Flex flexDirection="column" gap="2rem">
           <Text textStyle="md" fontWeight="medium">
-            Monthly Avg of Provider A
+            Monthly Avg of Provider C
           </Text>
           <AreaCharts />
         </Flex>

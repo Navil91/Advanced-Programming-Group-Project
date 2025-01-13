@@ -1,14 +1,13 @@
-
-import { Table } from "@chakra-ui/react"
+import { Table } from "@chakra-ui/react";
 export default function ConsumptionTable() {
   return (
     <Table.ScrollArea borderWidth="1px" rounded="md" height="full">
       <Table.Root size="sm" stickyHeader>
         <Table.Header>
           <Table.Row bg="bg.subtle">
-            <Table.ColumnHeader>Product</Table.ColumnHeader>
-            <Table.ColumnHeader>Category</Table.ColumnHeader>
-            <Table.ColumnHeader textAlign="end">Price</Table.ColumnHeader>
+            <Table.ColumnHeader>User Id</Table.ColumnHeader>
+            <Table.ColumnHeader>Month</Table.ColumnHeader>
+            <Table.ColumnHeader textAlign="end">Consumption</Table.ColumnHeader>
           </Table.Row>
         </Table.Header>
 
@@ -23,12 +22,12 @@ export default function ConsumptionTable() {
         </Table.Body>
       </Table.Root>
     </Table.ScrollArea>
-  )
+  );
 }
 const items = [
-    { id: 1, name: "Laptop", category: "Electronics", price: 999.99 },
-    { id: 2, name: "Coffee Maker", category: "Home Appliances", price: 49.99 },
-    { id: 3, name: "Desk Chair", category: "Furniture", price: 150.0 },
-    { id: 4, name: "Smartphone", category: "Electronics", price: 799.99 },
-    { id: 5, name: "Headphones", category: "Accessories", price: 199.99 },
-  ]
+  { id: 1, name: "User 1", category: "Jan", price: 12 },
+  { id: 2, name: "User 2", category: "Jan", price: 14 },
+  { id: 3, name: "User 3", category: "Jan", price: 20 },
+  { id: 4, name: "User 4", category: "Jan", price: 17 },
+  { id: 5, name: "User 5", category: "Jans", price: 16 },
+];

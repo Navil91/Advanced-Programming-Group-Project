@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Toaster />
       <Routes>
-        <Route path="/" element={<HomeDashboard />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<HomeDashboard />} />
+        <Route path="/" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );

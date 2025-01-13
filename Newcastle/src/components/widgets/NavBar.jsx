@@ -7,11 +7,7 @@
 
 import { Flex, HStack, Link } from "@chakra-ui/react";
 import { Avatar } from "../ui/avatar";
-import { LogOut } from "lucide-react";
-import { Tooltip } from "../ui/tooltip";
 import "../ui/style.css";
-import { getAuth } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
 /**
  * NavBar Component
@@ -25,20 +21,6 @@ import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBar({ activeNav, onHandleActiveNav, currentUser }) {
-  const navigate = useNavigate();
-  const auth = getAuth();
-
-  const handleLogout = () => {
-    auth
-      .signOut()
-      .then(() => {
-        navigate("/dashboard");
-      })
-      .catch((error) => {
-        console.error("Logout error:", error);
-      });
-  };
-
   return (
     <HStack
       w="dvw"
@@ -86,10 +68,6 @@ export default function NavBar({ activeNav, onHandleActiveNav, currentUser }) {
 
       {/* right content  */}
       <HStack alignItem="center" justifyContent="center" gap="20px">
-        <Tooltip content="LogOut" showArrow>
-          <LogOut strokeWidth={1.25} cursor="pointer" onClick={handleLogout} />
-        </Tooltip>
-
         <Avatar
           variant="solid"
           name="Admin"

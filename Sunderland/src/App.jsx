@@ -1,4 +1,4 @@
-import NavBar from "remoteApp/NavBar";
+import NavBar from "./components/widgets/NavBar";
 import { useState } from "react";
 import HomeDashboard from "./components/layout/HomeDashboard";
 import SettingsForm from "./components/widgets/SettingsForm";
