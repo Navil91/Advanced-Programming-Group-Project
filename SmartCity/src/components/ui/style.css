@@ -42,15 +42,24 @@
 .nav-link:hover {
   color: #db2777;
 }
-.btn-add-user{
+.btn-add-user {
   background-color: #db2777;
   color: #fafafa;
 }
-.btn-save{
+.btn-save {
   background-color: #111111;
   color: #fafafa;
 }
-.btn-dlt{
+.btn-dlt {
   background-color: #dc2626;
   color: #fafafa;
+}
+.btn-login {
+  background-color: #db2777;
+  color: #fafafa;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-login:hover {
+  background-color: #a41752;
 }

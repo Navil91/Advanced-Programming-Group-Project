@@ -1,6 +1,7 @@
 import { Flex, HStack, Link } from "@chakra-ui/react";
 import { Avatar } from "../ui/avatar";
-import { Moon, LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
+import { Tooltip } from "../ui/tooltip";
 import "../ui/style.css";
 // eslint-disable-next-line react/prop-types
 export default function NavBar({ activeNav, onHandleActiveNav, currentUser }) {
@@ -49,8 +50,10 @@ export default function NavBar({ activeNav, onHandleActiveNav, currentUser }) {
       </Flex>
       {/* right content  */}
       <HStack alignItem="center" justifyContent="center" gap="20px">
-        <Moon strokeWidth={1.25} />
-        <LogOut strokeWidth={1.25} />
+        <Tooltip content="LogOut" showArrow>
+          <LogOut strokeWidth={1.25} cursor={"pointer"} />
+        </Tooltip>
+
         <Avatar
           variant="solid"
           name="Admin"

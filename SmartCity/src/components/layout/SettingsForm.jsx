@@ -1,5 +1,4 @@
 import {
-  Box,
   Input,
   Flex,
   Fieldset,
@@ -13,7 +12,7 @@ import { PasswordInput } from "../ui/password-input";
 
 export default function SettingsForm() {
   return (
-    <Box padding="16px 52px">
+    <Flex padding="16px 52px" flexDirection="column">
       <Group
         flexDirection="column"
         textAlign="left"
@@ -66,6 +65,6 @@ export default function SettingsForm() {
           </Button>
         </Fieldset.Root>
       </Flex>
-    </Box>
+    </Flex>
   );
 }

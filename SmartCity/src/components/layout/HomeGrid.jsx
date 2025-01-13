@@ -3,7 +3,8 @@ import StatWidgetInfo from "../widgets/StatWidgetInfo";
 import AreaCharts from "../charts/AreaCharts";
 import Map from "../ui/map";
 import CityList from "../widgets/CityList";
-export default function HomeGrid() {
+// eslint-disable-next-line react/prop-types
+export default function HomeGrid({ currentUser }) {
   return (
     <Grid
       h="auto"
@@ -64,6 +65,7 @@ export default function HomeGrid() {
           alignItems="start"
           gap={1}
           mb="32px"
+          w="full"
         >
           <Text textStyle="lg">Monthly Average</Text>
           <Text textStyle="sm">
@@ -72,7 +74,7 @@ export default function HomeGrid() {
         </Group>
         <Flex gap={3}>
           <Map />
-          <CityList />
+          <CityList currentUser={currentUser} />
         </Flex>
       </GridItem>
       {/* Average usage chart widget  */}
@@ -90,6 +92,7 @@ export default function HomeGrid() {
           alignItems="start"
           gap={1}
           mb="32px"
+          w="full"
         >
           <Text textStyle="lg">Monthly Average</Text>
           <Text textStyle="sm">

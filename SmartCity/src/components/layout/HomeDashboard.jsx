@@ -7,13 +7,19 @@ import Users from "./Users";
 function HomeDashboard() {
   const [activeNav, setActiveNav] = useState("home");
   // eslint-disable-next-line no-unused-vars
-  const [currentUser,setCurrentUser] = useState("provider")
+  const [currentUser, setCurrentUser] = useState("admin");
   return (
     <>
-      <NavBar currentUser={currentUser} activeNav={activeNav} onHandleActiveNav={setActiveNav} />
-      {activeNav=="settings" ? (
+      <NavBar
+        currentUser={currentUser}
+        activeNav={activeNav}
+        onHandleActiveNav={setActiveNav}
+      />
+      {activeNav == "settings" ? (
         <SettingsForm />
-      ) : activeNav=="users" ? <Users/>:(
+      ) : activeNav == "users" ? (
+        <Users />
+      ) : (
         <Flex flexDirection="column" padding="16px 52px">
           <Group
             flexDirection="column"
@@ -27,7 +33,7 @@ function HomeDashboard() {
             </Text>
             <Text textStyle="sm">View all data of Cities</Text>
           </Group>
-          <HomeGrid />
+          <HomeGrid currentUser={currentUser} />
         </Flex>
       )}
     </>

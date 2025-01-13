@@ -1,80 +1,122 @@
-import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebaseConfig'; 
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  Flex,
+  Text,
+  Stack,
+  Group,
+  Fieldset,
+  Input,
+  Button,
+} from "@chakra-ui/react";
+import { Field } from "../ui/field";
+import { PasswordInput } from "../ui/password-input";
+import { toaster } from "../ui/toaster";
+import { auth } from "../../firebaseConfig";
+import { useNavigate } from "react-router-dom";
+import "../ui/style.css";
 
 /**
  * Login Page
- * 
- * This page allows the user to get logged in and gain access to the system. 
- * 
+ *
+ * This page allows the user to get logged in and gain access to the system.
+ *
  * @category Page
  * @author Navil Hassan
-*/
+ */
 
-const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loginMessage, setLoginMessage] = useState('');
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setLoginMessage('Login successful!');
-      setTimeout(() => setLoginMessage(''), 3000); // Clear message after 3 seconds
-      navigate('/HomeDashboard'); // Redirect to the home
-      setTimeout(() => setLoginMessage('successful'), 3000);
-      setTimeout(() => setLoginMessage(''), 3000);
+      setLoginMessage("Login successful!");
+      setTimeout(() => setLoginMessage(""), 3000); // Clear message after 3 seconds
+      navigate("/"); // Redirect to the home
+      setTimeout(() => setLoginMessage("successful"), 3000);
+      setTimeout(() => setLoginMessage(""), 3000);
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      setLoginMessage('Failed to log in. Please check your credentials.');
-      setTimeout(() => setLoginMessage(''), 3000);
+      setLoginMessage("Failed to log in. Please check your credentials.");
+      setTimeout(() => setLoginMessage(""), 3000);
     }
   };
-
+  useEffect(() => {
+    if (loginMessage) {
+      toaster.create({
+        title: loginMessage,
+        type: loginMessage === "Login successful!" ? "success" : "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  }, [loginMessage]);
   return (
-    <div className="relative min-h-screen flex justify-center items-center bg-primary">
-      {loginMessage && (
-        <div className="absolute top-0 right-0 m-4 bg-green-100 text-green-700 p-2 rounded">
-          {loginMessage}
-        </div>
-      )}
-      <div className="m-4 p-8 bg-white shadow-middle rounded-xlg max-w-sm w-full">
-        <h1 className="text-2xl font-bold text-center text-steelBlue mb-6">Login</h1>
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div>
-            <label htmlFor="email" className="text-steelBlue block mb-2">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-colour1"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="password" className="text-steelBlue block mb-2">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-colour1"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-colour1 hover:bg-bookHover text-white py-2 rounded-lg font-medium"
-          >
-            Sign In
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
+    <Stack
+      maxW="100vw"
+      maxH="100vh"
+      alignItems={"center"}
+      justifyContent={"center"}
+      height="100vh"
+      width="100vw"
+      gap="2rem"
+    >
+      <Flex alignItems="center" justifyContent="center" gap="4px">
+        <img
+          src="/Logo.svg"
+          alt="Smart Electricity Logo"
+          width="40px"
+          height="auto"
+        />
+        <Text textStyle="xl">Smart Electricity</Text>
+      </Flex>
+      <Group>
+        <Flex flexDirection="column">
+          <Text textStyle="2xl" fontWeight="bold">
+            Welcome Back!
+          </Text>
+          <Text textStyle="md">Log In to you account</Text>
+        </Flex>
+      </Group>
 
-export default LoginPage;
+      <Fieldset.Root size="lg" maxW="md">
+        <form onSubmit={handleLogin}>
+          <Fieldset.Content>
+            <Field label="Email address">
+              <Input
+                name="email"
+                type="email"
+                placeholder="Enter your Email Id"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Field>
+            <Field label="Password">
+              <PasswordInput
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Field>
+          </Fieldset.Content>
+          <Button
+            type="submit"
+            alignSelf="flex-start"
+            w="full"
+            className="btn-login"
+            mt="2rem"
+          >
+            Submit
+          </Button>
+        </form>
+      </Fieldset.Root>
+    </Stack>
+  );
+}
+
+LoginPage;

@@ -1,14 +1,19 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router";
 // eslint-disable-next-line no-unused-vars
 import HomeDashboard from "./components/layout/HomeDashboard";
+import { Toaster } from "./components/ui/toaster";
 import LoginPage from "./components/layout/LoginPage";
 
 function App() {
   return (
-    <>
-      {/* <HomeDashboard /> */}
-      <LoginPage />
-    </>
+    <BrowserRouter>
+      <Toaster />
+      <Routes>
+        <Route path="/" element={<HomeDashboard />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
