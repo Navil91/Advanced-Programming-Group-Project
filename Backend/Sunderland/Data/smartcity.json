@@ -1,0 +1,9 @@
+[{"slno":1, "consumption":"0kWh", "date":"Nov-2024", "provider":"A"},
+ {"slno":2, "consumption":"0kWh", "date":"Nov-2024", "provider":"B"},
+ {"slno":3, "consumption":"0kWh", "date":"Nov-2024", "provider":"C"},
+ {"slno":4, "consumption":"7159kWh", "date":"Nov-2024", "provider":"A"},
+ {"slno":5, "consumption":"7256kWh", "date":"Nov-2024", "provider":"B"},
+ {"slno":6, "consumption":"7198kWh", "date":"Nov-2024", "provider":"C"},
+ {"slno":7, "consumption":"11682kWh", "date":"Nov-2024", "provider":"A"},
+ {"slno":8, "consumption":"11825kWh", "date":"Nov-2024", "provider":"B"},
+ {"slno":9, "consumption":"11740kWh", "date":"Nov-2024", "provider":"C"}]

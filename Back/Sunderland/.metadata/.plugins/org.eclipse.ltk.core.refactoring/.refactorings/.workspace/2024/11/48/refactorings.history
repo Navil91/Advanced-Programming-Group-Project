@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;registry-microservice&apos; to &apos;service-registry-microservice&apos;" description="Rename resource &apos;registry-microservice&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/registry-microservice" name="service-registry-microservice" stamp="1732930960429" updateReferences="true"/>
+</session>

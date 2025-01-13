@@ -5,6 +5,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Legend,
   ResponsiveContainer,
 } from "recharts";
 
@@ -33,6 +34,7 @@ export default function AreaCharts() {
         <YAxis />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
+        <Legend />
         <Area
           type="monotone"
           dataKey="A"
