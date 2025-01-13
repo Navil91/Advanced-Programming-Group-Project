@@ -1,3 +1,21 @@
+/**
+ * @file ConsumptionTable.jsx
+ * @description Displays a table with user consumption data, showing the user ID, the month, and the corresponding consumption value.
+ * The table includes a default set of data and can be dynamically populated through props.
+ *
+ * @component
+ *
+ * @example
+ * <ConsumptionTable userConsumption={data} />
+ *
+ * @param {Array} userConsumption - Array of user consumption data. If no data is passed, a default set (`items`) is used.
+ *
+ * @returns {JSX.Element} A Chakra UI table displaying the user consumption data.
+ *
+ * @author Abhinav Prasannakumar
+ *
+ * @see https://chakra-ui.com/docs/data-display/table
+ */
 /* eslint-disable react/prop-types */
 import { Table } from "@chakra-ui/react";
 // eslint-disable-next-line no-unused-vars

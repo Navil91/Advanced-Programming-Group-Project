@@ -62,27 +62,21 @@ export default function AreaCharts() {
 }
 const data = [
   {
-    name: "Week 1",
-    A: 4000,
-    B: 2400,
-    C: 3500,
+    name: "Nov 2024",
+    A: 17347,
+    B: 17634,
+    C: 17625,
   },
   {
-    name: "Week 2",
-    A: 3000,
-    B: 1398,
-    C: 2210,
+    name: "Dec 2024",
+    A: 17364,
+    B: 17596,
+    C: 17551,
   },
   {
-    name: "Week 3",
-    A: 2000,
-    B: 9800,
-    C: 2290,
-  },
-  {
-    name: "Week 4",
-    A: 2780,
-    B: 3908,
-    C: 4000,
+    name: "Jan 2025",
+    A: 13615,
+    B: 13746,
+    C: 13786,
   },
 ];

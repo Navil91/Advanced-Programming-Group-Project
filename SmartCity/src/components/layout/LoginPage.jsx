@@ -25,7 +25,8 @@ import "../ui/style.css";
  * @author Navil Hassan
  */
 
-export default function LoginPage() {
+// eslint-disable-next-line react/prop-types
+export default function LoginPage({ onHandleCurrentUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
@@ -35,9 +36,15 @@ export default function LoginPage() {
     event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      if (email == "admin@smartelectricity.com") {
+        onHandleCurrentUser("admin");
+      }
+      if (email == "provider@smartelectricity.com") {
+        onHandleCurrentUser("provider");
+      }
       setLoginMessage("Login successful!");
       setTimeout(() => setLoginMessage(""), 3000); // Clear message after 3 seconds
-      navigate("/"); // Redirect to the home
+      navigate("/dashboard"); // Redirect to the home
       setTimeout(() => setLoginMessage("successful"), 3000);
       setTimeout(() => setLoginMessage(""), 3000);
       // eslint-disable-next-line no-unused-vars

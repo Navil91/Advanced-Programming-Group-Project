@@ -1,3 +1,29 @@
+/**
+ * HomeGrid Component
+ * Author: Abhinav Prasannakumar
+ *
+ * Displays various charts and tables representing electricity consumption data
+ * for multiple providers. The component fetches the data from an API, processes it,
+ * and displays it using `AreaCharts` and `BarCharts`.
+ *
+ * Functionality:
+ * - Fetches consumption data from the backend.
+ * - Groups data by provider and date, then calculates average consumption.
+ * - Combines data from all providers for a final chart.
+ * - Renders individual charts for each provider's data and a bar chart for all providers' combined data.
+ *
+ * Components:
+ * - `AreaCharts`: Displays monthly average consumption for individual providers.
+ * - `BarCharts`: Displays combined monthly average consumption for all providers.
+ * - `UserTabs`: Displays tabular information related to users.
+ *
+ * State:
+ * - `userConsumption`: Holds fetched consumption data.
+ *
+ * Imports:
+ * - `Box`, `Group`, `Text`, `Grid`, `GridItem`, `Flex` from Chakra UI for layout and styling.
+ * - `AreaCharts`, `BarCharts`, and `UserTabs` for displaying charts and data.
+ */
 import { Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import AreaCharts from "../charts/AreaCharts";
 import BarCharts from "../charts/BarCharts";

@@ -1,3 +1,18 @@
+/**
+ * HomeDashboard Component
+ * Author: Navil Hassan
+ *
+ * Displays the main dashboard view with an introductory section
+ * and a grid layout for showcasing electricity usage data.
+ *
+ * Functionality:
+ * - Displays a title "Sunderland" with a brief description.
+ * - Uses `HomeGrid` component to show electricity usage data in a grid format.
+ *
+ * Imports:
+ * - `Box`, `Group`, `Text` from Chakra UI for layout and styling.
+ * - `HomeGrid` for the main content grid.
+ */
 import { Box, Group, Text } from "@chakra-ui/react";
 import HomeGrid from "../widgets/HomeGrid";
 

@@ -32,7 +32,7 @@ export default function NavBar({ activeNav, onHandleActiveNav, currentUser }) {
     auth
       .signOut()
       .then(() => {
-        navigate("/dashboard");
+        navigate("/");
       })
       .catch((error) => {
         console.error("Logout error:", error);

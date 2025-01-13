@@ -1,8 +1,30 @@
+/**
+ * Home Grid
+ *
+ * This component is responsible for rendering the grid layout of the dashboard.
+ * It displays various widgets such as statistics, a map, city details, and
+ * a chart showing monthly average electricity usage.
+ *
+ * @category Component
+ * @author Abhinav Prasannakumar
+ * @param {Object} props - React component props.
+ * @param {Object} props.currentUser - The currently logged-in user.
+ * @returns {JSX.Element} The rendered grid layout for the dashboard.
+ */
 import { Flex, Grid, GridItem, Group, Text } from "@chakra-ui/react";
 import StatWidgetInfo from "../widgets/StatWidgetInfo";
 import AreaCharts from "../charts/AreaCharts";
 import Map from "../ui/map";
 import CityList from "../widgets/CityList";
+/**
+ * Renders the HomeGrid component.
+ * This component is divided into multiple sections for different types of information
+ * and visual elements, such as statistics, a map, and charts.
+ *
+ * @function HomeGrid
+ * @param {Object} props - The props passed to the component.
+ * @param {Object} props.currentUser - The logged-in user's data.
+ */
 // eslint-disable-next-line react/prop-types
 export default function HomeGrid({ currentUser }) {
   return (
@@ -21,7 +43,7 @@ export default function HomeGrid({ currentUser }) {
         borderRadius={8}
         padding="16px"
       >
-        <StatWidgetInfo label="No. of Users" text="450" />
+        <StatWidgetInfo label="No. of Users" text="1350" />
       </GridItem>
       <GridItem
         bgColor="#FAFAFA"

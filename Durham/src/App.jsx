@@ -1,3 +1,21 @@
+/**
+ * App Component
+ * Author: Navil Hassan
+ *
+ * Main entry point for the application. Manages navigation state
+ * and conditionally renders components based on the selected navigation item.
+ *
+ * Imports:
+ * - `NavBar`: Navigation bar widget.
+ * - `HomeDashboard`: Main dashboard layout.
+ * - `SettingsForm`: Form for managing settings.
+ *
+ * Functionality:
+ * - Tracks `activeNav` state to determine the current view ("home" or "settings").
+ * - Passes `currentUser` ("admin") and `activeNav` to `NavBar`.
+ * - Updates `activeNav` via the `onHandleActiveNav` callback.
+ * - Renders `HomeDashboard` or `SettingsForm` based on `activeNav`.
+ */
 import NavBar from "./components/widgets/NavBar";
 import { useState } from "react";
 import HomeDashboard from "./components/layout/HomeDashboard";

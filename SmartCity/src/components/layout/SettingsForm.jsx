@@ -4,34 +4,32 @@
  * @author Navil Hassan
  */
 
-import {
-  Input,
-  Flex,
-  Stack,
-  Button,
-  Text,
-  useToast,
-} from "@chakra-ui/react";
+import { Flex, Stack, Button, Text, Toast } from "@chakra-ui/react";
 import { Field } from "../ui/field";
 import { PasswordInput } from "../ui/password-input";
+import { toaster } from "../ui/toaster";
 import { useState } from "react";
-import { getAuth, updatePassword, EmailAuthProvider, reauthenticateWithCredential } from "firebase/auth";
+import {
+  getAuth,
+  updatePassword,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+} from "firebase/auth";
 
 export default function SettingsForm() {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const auth = getAuth();
-  const toast = useToast();
 
   const handlePasswordChange = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
     // Test toast to verify it's working
-    toast({
+    toaster.create({
       title: "Processing",
       description: "Attempting to change password...",
       status: "info",
@@ -41,7 +39,7 @@ export default function SettingsForm() {
     });
 
     if (newPassword !== confirmPassword) {
-      toast({
+      Toast.create({
         title: "Error",
         description: "New passwords don't match",
         status: "error",
@@ -54,11 +52,11 @@ export default function SettingsForm() {
     }
 
     try {
-      console.log("Starting password change process..."); 
+      console.log("Starting password change process...");
       const user = auth.currentUser;
-      
+
       if (!user) {
-        toast({
+        Toast.create({
           title: "Error",
           description: "No user is currently logged in",
           status: "error",
@@ -70,11 +68,8 @@ export default function SettingsForm() {
         return;
       }
 
-      console.log("Creating credential..."); 
-      const credential = EmailAuthProvider.credential(
-        user.email,
-        oldPassword
-      );
+      console.log("Creating credential...");
+      const credential = EmailAuthProvider.credential(user.email, oldPassword);
 
       console.log("Reauthenticating...");
       await reauthenticateWithCredential(user, credential);
@@ -82,7 +77,7 @@ export default function SettingsForm() {
       console.log("Updating password...");
       await updatePassword(user, newPassword);
 
-      toast({
+      toaster.create({
         title: "Success! 🎉",
         description: "Your password has been successfully updated",
         status: "success",
@@ -95,20 +90,21 @@ export default function SettingsForm() {
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
-      
     } catch (error) {
-      console.error("Password change error:", error); 
+      console.error("Password change error:", error);
       let errorMessage = "Failed to update password";
-      
-      if (error.code === 'auth/wrong-password') {
+
+      if (error.code === "auth/wrong-password") {
         errorMessage = "Current password is incorrect";
-      } else if (error.code === 'auth/requires-recent-login') {
-        errorMessage = "Please log out and log back in before changing your password";
-      } else if (error.code === 'auth/weak-password') {
-        errorMessage = "New password is too weak. It should be at least 6 characters";
+      } else if (error.code === "auth/requires-recent-login") {
+        errorMessage =
+          "Please log out and log back in before changing your password";
+      } else if (error.code === "auth/weak-password") {
+        errorMessage =
+          "New password is too weak. It should be at least 6 characters";
       }
 
-      toast({
+      toaster.create({
         title: "Error",
         description: errorMessage,
         status: "error",
@@ -146,7 +142,9 @@ export default function SettingsForm() {
       >
         <Stack size="lg" maxW="md">
           <Stack>
-            <Text color="#111111" fontWeight="medium">Contact details</Text>
+            <Text color="#111111" fontWeight="medium">
+              Contact details
+            </Text>
             <Text fontSize="sm" color="gray.500">
               Please provide your contact details below.
             </Text>

@@ -1,4 +1,4 @@
-import { Button } from "../ui/button"
+import { Button } from "../ui/button";
 import {
   DialogActionTrigger,
   DialogBody,
@@ -9,8 +9,8 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from "../ui/dialog"
-import "../ui/style.css"
+} from "../ui/dialog";
+import "../ui/style.css";
 export default function DeleteConfirmModal() {
   return (
     <DialogRoot>
@@ -24,18 +24,18 @@ export default function DeleteConfirmModal() {
           <DialogTitle>Delete user?</DialogTitle>
         </DialogHeader>
         <DialogBody>
-          <p>
-            This action can't be Unchanged. Want to delete this user?
-          </p>
+          <p>This action cant be Unchanged. Want to delete this user?</p>
         </DialogBody>
         <DialogFooter>
           <DialogActionTrigger asChild>
             <Button variant="outline">Cancel</Button>
           </DialogActionTrigger>
-          <Button className="btn-dlt">Delete</Button>
+          <DialogActionTrigger asChild>
+            <Button className="btn-dlt">Delete</Button>
+          </DialogActionTrigger>
         </DialogFooter>
         <DialogCloseTrigger />
       </DialogContent>
     </DialogRoot>
-  )
+  );
 }
