@@ -9,10 +9,11 @@ import {
   Legend,
 } from "recharts";
 
-export default function AreaCharts() {
+// eslint-disable-next-line react/prop-types
+export default function BarCharts({ chartdata = data }) {
   return (
     <ResponsiveContainer height={300}>
-      <BarChart width={730} height={250} data={data}>
+      <BarChart width={730} height={250} data={chartdata}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />

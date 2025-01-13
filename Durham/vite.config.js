@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "durham",
+      name: "newcastle",
       remotes: {
         remoteApp: "http://localhost:5001/assets/remoteEntry.js",
       },

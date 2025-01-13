@@ -13,16 +13,16 @@ public class Routes {
 	@Bean
 	public RouterFunction<ServerResponse>citizenMicroserviceRoute(){
 		return GatewayRouterFunctions.route("citizen-microservice")
-				.route(RequestPredicates.path("/api/citizen/generateconsumption"),HandlerFunctions.http("http://localhost:8080"))
-				.route(RequestPredicates.path("/api/citizen/getuser"),HandlerFunctions.http("http://localhost:8080"))
+				.route(RequestPredicates.path("/api/citizen/generateconsumption"),HandlerFunctions.http("http://localhost:8180"))
+				.route(RequestPredicates.path("/api/citizen/getuser"),HandlerFunctions.http("http://localhost:8180"))
 				.build();
 	}
 	
 	@Bean
 	public RouterFunction<ServerResponse>providerMicroserviceRoute(){
 		return GatewayRouterFunctions.route("citizen-microservice")
-				.route(RequestPredicates.path("/api/provider/getconsumption"),HandlerFunctions.http("http://localhost:8081"))
-				.route(RequestPredicates.path("/api/provider/getallconsumption"),HandlerFunctions.http("http://localhost:8081"))
+				.route(RequestPredicates.path("/api/provider/getconsumption"),HandlerFunctions.http("http://localhost:8181"))
+				.route(RequestPredicates.path("/api/provider/getallconsumption"),HandlerFunctions.http("http://localhost:8181"))
 				.build();
 	}
 	@Bean
