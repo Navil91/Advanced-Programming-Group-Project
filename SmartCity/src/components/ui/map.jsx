@@ -47,10 +47,10 @@ export default function Map() {
         />
       </svg>
       <ReactTooltip id="my-tooltip-1" place="bottom" content="Darlington" />
-      <ReactTooltip id="my-tooltip-2" place="top" content="Newcastle" />
+      <ReactTooltip id="my-tooltip-2" place="top" content="Newcastle (No of User: 450)" />
       <ReactTooltip id="my-tooltip-3" place="bottom" content="Middlesbrough" />
-      <ReactTooltip id="my-tooltip-4" place="bottom" content="Durham" />
-      <ReactTooltip id="my-tooltip-5" place="top" content="Sunderland" />
+      <ReactTooltip id="my-tooltip-4" place="bottom" content="Durham (No of User: 450)" />
+      <ReactTooltip id="my-tooltip-5" place="top" content="Sunderland (No of User: 450)" />
     </Box>
   );
 }

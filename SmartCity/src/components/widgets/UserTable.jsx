@@ -61,7 +61,7 @@ export default function TableContent() {
                 />
               </Table.ColumnHeader>
               <Table.ColumnHeader>User Id</Table.ColumnHeader>
-              <Table.ColumnHeader>Provider</Table.ColumnHeader>
+              <Table.ColumnHeader>City</Table.ColumnHeader>
               <Table.ColumnHeader>User Type</Table.ColumnHeader>
             </Table.Row>
           </Table.Header>
