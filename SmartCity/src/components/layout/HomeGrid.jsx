@@ -70,7 +70,7 @@ export default function HomeGrid({ currentUser }) {
         borderRadius={8}
         padding="16px"
       >
-        <StatWidgetInfo label="Monthly Average" text="1150kWh" />
+        <StatWidgetInfo label="Monthly Average of Providers" text="13715.6 kWh" />
       </GridItem>
       {/* Map and city widget  */}
       <GridItem

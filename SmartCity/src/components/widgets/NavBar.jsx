@@ -92,10 +92,10 @@ export default function NavBar({ activeNav, onHandleActiveNav, currentUser }) {
 
         <Avatar
           variant="solid"
-          name="Admin"
+          name={currentUser == "provider"?"Provider":"Admin"}
           shape="rounded"
           size="sm"
-          bgColor="#DB2777"
+          bgColor={currentUser == "provider"?"#ca8a04":"#DB2777"}
           color="#fafafa"
         />
       </HStack>

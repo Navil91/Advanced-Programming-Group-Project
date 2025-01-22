@@ -7,7 +7,7 @@ import { getAuth } from 'firebase/auth';
  * This is used to connect our Firebase project to our React application based on documentation from Firebase.
  * 
  * @category Integration
- * @author Pawel Lasota, Navil Hassan
+ * @author Navil Hassan
 */
 
 const firebaseConfig = {
